@@ -3,10 +3,6 @@
 ###################
 
 FROM node:20-alpine As development
-LABEL org.opencontainers.image.source https://github.com/developkosarev/NestBasicProject
-LABEL org.opencontainers.image.title="NestBasicProject"
-LABEL org.opencontainers.image.authors="develop.kosarev@gmail.com"
-LABEL org.opencontainers.image.version="0.0.1"
 
 # Create app directory
 WORKDIR /opt/app
@@ -56,6 +52,10 @@ USER node
 ###################
 
 FROM node:20-alpine As production
+LABEL org.opencontainers.image.source https://github.com/developkosarev/NestBasicProject
+LABEL org.opencontainers.image.title="NestBasicProject"
+LABEL org.opencontainers.image.authors="develop.kosarev@gmail.com"
+LABEL org.opencontainers.image.version="0.0.1"
 
 # Copy the bundled code from the build stage to the production image
 COPY --chown=node:node --from=build /opt/app/node_modules ./node_modules

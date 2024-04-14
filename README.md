@@ -46,6 +46,11 @@ docker run -rm --name nest-basic-project nest-basic-project:v0.0.1
 docker run -d -p 3000:3000 --name nest-basic-project nest-basic-project:v0.0.2
 ```    
 
+## S3 bucket
+```bash
+aws s3 cp file1.txt s3://my-bucket/file1.txt --profile=defaults
+```
+
 
 ## Articles
 
