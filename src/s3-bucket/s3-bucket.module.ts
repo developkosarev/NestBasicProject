@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { S3BucketCommand } from './s3-bucket.command';
+import { CommandTutorial } from './s3-bucket.command';
 
 @Module({
-  providers: [S3BucketCommand],
+  providers: [CommandTutorial],
 })
 export class S3BucketModule {}

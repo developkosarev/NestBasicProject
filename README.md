@@ -35,6 +35,16 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Cli
+```bash
+npm run start:cli
+npm run start:cli help basic
+npm run start:cli help cowsay
+
+npm run start:cli basic demo
+npm run start:cli sayhello demo -- --name=Sam --age=40
+```
+
 ## Docker
 ```bash
 docker build --tag nest-basic-project:v0.0.1 --file Dockerfile .
@@ -55,3 +65,5 @@ aws s3 cp file1.txt s3://my-bucket/file1.txt --profile=defaults
 ## Articles
 
 [building-your-first-nestjs-application-a-step-by-step-guide](https://dreamix.eu/insights/building-your-first-nestjs-application-a-step-by-step-guide/)
+
+[sending-command-line-arguments-to-npm-script](https://stackoverflow.com/questions/11580961/sending-command-line-arguments-to-npm-script)
