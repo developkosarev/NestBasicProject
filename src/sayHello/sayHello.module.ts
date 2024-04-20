@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SayHelloCommand } from './SayHello.command';
+import { SayHelloCommand } from './sayHello.command';
 
 @Module({
   providers: [SayHelloCommand],
