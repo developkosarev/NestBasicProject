@@ -40,6 +40,7 @@ $ npm run test:cov
 npm run start:cli
 npm run start:cli help basic
 npm run start:cli help cowsay
+npm run start:cli prisma-hello
 
 npm run start:cli basic demo
 npm run start:cli sayhello demo -- --name=Sam --age=40
