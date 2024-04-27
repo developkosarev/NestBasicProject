@@ -6,9 +6,10 @@ import { S3BucketModule } from './s3-bucket/s3-bucket.module';
 import { SayHelloModule } from './sayHello/sayHello.module';
 import { PrismaHelloModule } from './prisma-hello/prisma-hello.module';
 import { TunnelSshMysqlModule } from './tunnel-ssh-mysql/tunnel-ssh-mysql.module';
+import { TunnelSshModule } from './tunnel-ssh/tunnel-ssh.module';
 
 @Module({
-  imports: [S3BucketModule, CowSayModule, SayHelloModule, PrismaHelloModule, TunnelSshMysqlModule],
+  imports: [S3BucketModule, CowSayModule, SayHelloModule, PrismaHelloModule, TunnelSshMysqlModule, TunnelSshModule],
   controllers: [AppController],
   providers: [AppService],
 })

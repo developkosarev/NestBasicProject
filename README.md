@@ -44,6 +44,8 @@ npm run start:cli prisma-hello
 
 npm run start:cli basic demo
 npm run start:cli sayhello demo -- --name=Sam --age=40
+
+npm run start:cli tunnel-ssh
 ```
 
 ## Docker

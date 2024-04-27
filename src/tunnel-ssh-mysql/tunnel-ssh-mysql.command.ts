@@ -2,7 +2,7 @@ import { Command, CommandRunner, Option } from 'nest-commander';
 import { readFileSync } from "fs"
 import { Client } from 'ssh2'
 
-@Command({ name: 'tunnel-ssh', description: 'Tunnel SSH' })
+@Command({ name: 'tunnel-ssh-mysql', description: 'Tunnel SSH mysql' })
 export class TunnelSshMysqlCommand extends CommandRunner {
   async run(inputs: string[]): Promise<void> {
     console.log('Tunnel ssh')
