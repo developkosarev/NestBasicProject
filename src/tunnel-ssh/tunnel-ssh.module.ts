@@ -8,6 +8,6 @@ import { TunnelSshService } from './tunnel-ssh.service';
 
 @Module({
   providers: [SshConfigService, TunnelSshCommand, TunnelSshService],
-  imports: [ConfigModule]
+  imports: [ConfigModule],
 })
 export class TunnelSshModule {}
