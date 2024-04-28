@@ -10,9 +10,14 @@ import { TunnelSshMysqlModule } from './tunnel-ssh-mysql/tunnel-ssh-mysql.module
 import { TunnelSshModule } from './tunnel-ssh/tunnel-ssh.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
-    S3BucketModule, CowSayModule, SayHelloModule, PrismaHelloModule,
-    TunnelSshMysqlModule, TunnelSshModule
+  imports: [
+    ConfigModule.forRoot(),
+    S3BucketModule,
+    CowSayModule,
+    SayHelloModule,
+    PrismaHelloModule,
+    TunnelSshMysqlModule,
+    TunnelSshModule,
   ],
   controllers: [AppController],
   providers: [AppService],

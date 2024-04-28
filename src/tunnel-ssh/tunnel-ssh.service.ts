@@ -3,9 +3,7 @@ import { SshConfigService } from './config/ssh.config';
 
 @Injectable()
 export class TunnelSshService {
-  constructor(
-    private sshConfigService: SshConfigService
-  ) {}
+  constructor(private sshConfigService: SshConfigService) {}
 
   getShhHost() {
     return this.sshConfigService.getHost();

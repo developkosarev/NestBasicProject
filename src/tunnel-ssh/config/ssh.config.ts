@@ -3,9 +3,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class SshConfigService {
-  constructor(
-    private configService: ConfigService,
-  ) {}
+  constructor(private configService: ConfigService) {}
 
   getHost() {
     return this.configService.get<string>('SSH_HOST');

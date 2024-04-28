@@ -2,7 +2,11 @@ import { Command, CommandRunner } from 'nest-commander';
 import { WebsiteService } from './website.service';
 import { PrismaClient } from '@prisma/client';
 
-@Command({ name: 'prisma-hello', arguments: '[task]', description: 'Prisma hello' })
+@Command({
+  name: 'prisma-hello',
+  arguments: '[task]',
+  description: 'Prisma hello',
+})
 export class PrismaHelloCommand extends CommandRunner {
   //constructor(private websiteService: WebsiteService) {
   //  super();

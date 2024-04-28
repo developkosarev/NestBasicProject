@@ -3,18 +3,16 @@ import { TunnelSshService } from './tunnel-ssh.service';
 
 @Command({ name: 'tunnel-ssh', description: 'Tunnel SSH' })
 export class TunnelSshCommand extends CommandRunner {
-  constructor(
-    private tunnelSshService: TunnelSshService
-  ) {
+  constructor(private tunnelSshService: TunnelSshService) {
     super();
   }
 
   async run(inputs: string[]): Promise<void> {
-    console.log('Tunnel ssh Start')
+    console.log('Tunnel ssh Start');
 
-    console.log(this.tunnelSshService.getShhHost())
-    console.log(this.tunnelSshService.getShhUser())
+    console.log(this.tunnelSshService.getShhHost());
+    console.log(this.tunnelSshService.getShhUser());
 
-    console.log('Tunnel ssh End')
+    console.log('Tunnel ssh End');
   }
 }
