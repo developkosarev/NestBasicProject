@@ -131,7 +131,7 @@ export class TunnelSshService {
       '-N'
     ];
 
-    const sshProcess = spawn(sshCommand, sshArgs, {
+    let sshProcess = spawn(sshCommand, sshArgs, {
       stdio: 'ignore', // This hides the output of the SSH command; use 'inherit' to see it in your console
       shell: true // This executes the command within a shell; useful for handling the SSH command correctly
     });
@@ -146,6 +146,9 @@ export class TunnelSshService {
       console.log(`SSH tunnel closed with exit code ${code}`);
     });
 
+    sshProcess.on('ready', () => {
+      console.log(`SSH tunnel ready`);
+    });
 
     let promise = new Promise(function(resolve, reject) {
       setTimeout(() => {
@@ -163,6 +166,15 @@ export class TunnelSshService {
       console.log(result1);
     } catch(err) {
       console.log(err);
+    }
+
+
+    if (sshProcess) {
+      sshProcess.kill('SIGTERM');  // Send a SIGTERM signal
+      console.log('SSH tunnel is being closed...');
+      sshProcess = null;
+    } else {
+      console.log('No SSH tunnel process was found.');
     }
 
   }
