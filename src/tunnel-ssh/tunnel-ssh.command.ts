@@ -13,6 +13,7 @@ export class TunnelSshCommand extends CommandRunner {
     console.log('Tunnel ssh Start')
 
     console.log(this.tunnelSshService.getShhHost())
+    console.log(this.tunnelSshService.getShhUser())
 
     console.log('Tunnel ssh End')
   }

@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { TunnelSshConfigService } from './tunnel-ssh-config.service';
+import { SshConfigService } from './config/ssh.config';
 
 @Injectable()
 export class TunnelSshService {
   constructor(
-    private configService: ConfigService,
-    private tunnelSshConfigService: TunnelSshConfigService
+    private sshConfigService: SshConfigService
   ) {}
 
   getShhHost() {
-    //return this.configService.get<string>('DB_HOST');
-    return this.tunnelSshConfigService.getShhHost();
-
-    //return 'example.com'
+    return this.sshConfigService.getHost();
+  }
+  getShhUser() {
+    return this.sshConfigService.getUser();
   }
 }
