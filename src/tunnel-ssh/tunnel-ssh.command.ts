@@ -22,7 +22,9 @@ export class TunnelSshCommand extends CommandRunner {
 
     //this.tunnelSshService.runV3()
 
-    await this.tunnelSshService.runV4()
+    //await this.tunnelSshService.runV4()
+
+    await this.tunnelSshService.runV5()
 
     console.log('Tunnel ssh End')
   }

@@ -2,12 +2,13 @@ import { Module } from '@nestjs/common';
 /* Config */
 import { ConfigModule } from '@nestjs/config';
 import { SshConfigService } from './config/ssh.config';
+import { MysqlConfigService } from './config/mysql.config';
 /* Command */
-import { TunnelSshCommand } from './tunnel-ssh.command';
 import { TunnelSshService } from './tunnel-ssh.service';
+import { TunnelSshCommand } from './tunnel-ssh.command';
 
 @Module({
-  providers: [SshConfigService, TunnelSshCommand, TunnelSshService],
+  providers: [SshConfigService, MysqlConfigService, TunnelSshService, TunnelSshCommand],
   imports: [ConfigModule],
 })
 export class TunnelSshModule {}
