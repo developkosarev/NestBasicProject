@@ -1,6 +1,6 @@
 import { Command, CommandRunner, Option } from 'nest-commander';
 
-interface BasicCommandOptions {  
+interface BasicCommandOptions {
   name?: string;
   age?: number;
 }
@@ -8,7 +8,6 @@ interface BasicCommandOptions {
 @Command({ name: 'sayhello', description: 'Say hello' })
 export class SayHelloCommand extends CommandRunner {
   async run(inputs: string[], options?: BasicCommandOptions): Promise<void> {
-        
     console.log('Inputs:', inputs);
     console.log('Options:', options);
     console.log(`Options age: ${options.age}`);
@@ -23,12 +22,20 @@ export class SayHelloCommand extends CommandRunner {
     //}
   }
 
-  @Option({ flags: '-n, --name [name]', name: 'name', description: 'String return' })
+  @Option({
+    flags: '-n, --name [name]',
+    name: 'name',
+    description: 'String return',
+  })
   parseName(val: string) {
     return val;
   }
 
-  @Option({ flags: '-a, --age [age]', name: 'age', description: 'Basic number parser' })
+  @Option({
+    flags: '-a, --age [age]',
+    name: 'age',
+    description: 'Basic number parser',
+  })
   parseAge(val: string): number {
     return Number.parseInt(val, 10);
   }

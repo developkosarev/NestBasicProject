@@ -1,8 +1,10 @@
 import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 import { CommandFactory } from 'nest-commander';
-import { SayHelloModule } from './sayHello/sayHello.module';
 
-async function bootstrap() {  
-  await CommandFactory.run(SayHelloModule);
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  //await app.listen(3000);
+  await CommandFactory.run(AppModule);
 }
 bootstrap();

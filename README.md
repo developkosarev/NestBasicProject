@@ -20,6 +20,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# lint
+$ npm run lint
 ```
 
 ## Test

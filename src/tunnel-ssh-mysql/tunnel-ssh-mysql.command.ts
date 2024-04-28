@@ -1,38 +1,39 @@
 import { Command, CommandRunner, Option } from 'nest-commander';
-import { readFileSync } from "fs"
-import { Client } from 'ssh2'
+import { readFileSync } from 'fs';
+import { Client } from 'ssh2';
 
 @Command({ name: 'tunnel-ssh-mysql', description: 'Tunnel SSH mysql' })
 export class TunnelSshMysqlCommand extends CommandRunner {
   async run(inputs: string[]): Promise<void> {
-    console.log('Tunnel ssh')
+    console.log('Tunnel ssh');
 
     const mysqlssh = require('mysql-ssh');
     const fs = require('fs');
 
-    mysqlssh.connect(
-      {
-        host: 'my-ssh-server.org',
-        user: 'me-ssh',
-        privateKey: fs.readFileSync(process.env.HOME + '/.ssh/id_rsa')
-      },
-      {
-        host: 'my-db-host.com',
-        user: 'me-db',
-        password: 'secret',
-        database: 'my-db-name'
-      }
-    )
-      .then(client => {
+    mysqlssh
+      .connect(
+        {
+          host: 'my-ssh-server.org',
+          user: 'me-ssh',
+          privateKey: fs.readFileSync(process.env.HOME + '/.ssh/id_rsa'),
+        },
+        {
+          host: 'my-db-host.com',
+          user: 'me-db',
+          password: 'secret',
+          database: 'my-db-name',
+        },
+      )
+      .then((client) => {
         client.query('SELECT * FROM `users`', function (err, results, fields) {
-          if (err) throw err
+          if (err) throw err;
           console.log(results);
-          mysqlssh.close()
-        })
+          mysqlssh.close();
+        });
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // const conn : Client = new Client();
     //
@@ -81,6 +82,6 @@ export class TunnelSshMysqlCommand extends CommandRunner {
     //   privateKey: readFileSync(getSshPrivateKey())
     // });
 
-    console.log('Tunnel ssh END')
+    console.log('Tunnel ssh END');
   }
 }
