@@ -1,9 +1,13 @@
 import { Command, CommandRunner } from 'nest-commander';
 import { TunnelSshService } from './tunnel-ssh.service';
+import { MysqlSshService } from './mysql-ssh.service';
 
 @Command({ name: 'tunnel-ssh', description: 'Tunnel SSH' })
 export class TunnelSshCommand extends CommandRunner {
-  constructor(private tunnelSshService: TunnelSshService) {
+  constructor(
+    private tunnelSshService: TunnelSshService,
+    private mysqlSshService: MysqlSshService
+  ) {
     super();
   }
 
@@ -24,7 +28,9 @@ export class TunnelSshCommand extends CommandRunner {
 
     //await this.tunnelSshService.runV4()
 
-    await this.tunnelSshService.runV5()
+    //await this.tunnelSshService.runV5()
+
+    await this.mysqlSshService.run()
 
     console.log('Tunnel ssh End')
   }

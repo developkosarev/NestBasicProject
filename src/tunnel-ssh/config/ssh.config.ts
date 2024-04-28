@@ -11,7 +11,10 @@ export class SshConfigService {
   getUser() {
     return this.configService.get<string>('SSH_USER');
   }
-  getPrivateKet() {
+  getPrivateKey() {
     return this.configService.get<string>('SSH_PRIVATE_KEY');
+  }
+  getPrivateKeyPpk() {
+    return this.configService.get<string>('SSH_PRIVATE_KEY_PPK');
   }
 }

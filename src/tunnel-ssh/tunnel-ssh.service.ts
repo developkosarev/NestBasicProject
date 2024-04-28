@@ -35,7 +35,7 @@ export class TunnelSshService {
     return ssh.connect({
       host: this.sshConfigService.getHost(),
       username: this.sshConfigService.getUser(),
-      privateKeyPath: this.sshConfigService.getPrivateKet()
+      privateKeyPath: this.sshConfigService.getPrivateKey()
     })
   }
 
@@ -45,7 +45,7 @@ export class TunnelSshService {
     return ssh.connect({
       host: this.sshConfigService.getHost(),
       username: this.sshConfigService.getUser(),
-      privateKeyPath: this.sshConfigService.getPrivateKet()
+      privateKeyPath: this.sshConfigService.getPrivateKey()
     })
     .then(function() {
       // Command
@@ -66,7 +66,7 @@ export class TunnelSshService {
     await ssh.connect({
       host: this.sshConfigService.getHost(),
       username: this.sshConfigService.getUser(),
-      privateKeyPath: this.sshConfigService.getPrivateKet()
+      privateKeyPath: this.sshConfigService.getPrivateKey()
     })
 
     //Command
@@ -121,7 +121,7 @@ export class TunnelSshService {
     const remotePort = 3306; // The port on which the remote database is running
     const sshUser = this.sshConfigService.getUser(); // Your SSH username
     const sshHost = this.sshConfigService.getHost(); // The SSH server hostname or IP
-    const sshPrivateKeyPath = this.sshConfigService.getPrivateKet()
+    const sshPrivateKeyPath = this.sshConfigService.getPrivateKey()
 
     const sshCommand = `ssh`;
     const sshArgs = [
