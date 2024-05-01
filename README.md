@@ -76,3 +76,4 @@ https://www.npmjs.com/package/ssh2
 
 [building-your-first-nestjs-application-a-step-by-step-guide](https://dreamix.eu/insights/building-your-first-nestjs-application-a-step-by-step-guide/)
 [sending-command-line-arguments-to-npm-script](https://stackoverflow.com/questions/11580961/sending-command-line-arguments-to-npm-script)
+[https://blog.stackademic.com/react-file-upload-to-s3-via-nestjs-serverside-e9c7a2fdd019](https://blog.stackademic.com/react-file-upload-to-s3-via-nestjs-serverside-e9c7a2fdd019)
