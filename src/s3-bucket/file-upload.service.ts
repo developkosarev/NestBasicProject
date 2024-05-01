@@ -1,7 +1,6 @@
 import { Injectable, UploadedFiles } from '@nestjs/common';
 import { S3BucketConfig } from './config/s3-bucket.config';
-import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
-//import { v4 as uuid } from 'uuid';
+import { S3Client, ListObjectsV2Command, PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 
 @Injectable()
 export class FileUploadService {
@@ -9,7 +8,7 @@ export class FileUploadService {
     private s3BucketConfig: S3BucketConfig,
   ) {}
 
-  async ls() {
+  async list() {
     const client = new S3Client({
       region: this.s3BucketConfig.getRegion(),
       credentials: {
@@ -38,48 +37,60 @@ export class FileUploadService {
         contents += contentsList + "\n";
         isTruncated = IsTruncated;
         command.input.ContinuationToken = NextContinuationToken;
+
+        //console.log(Contents);
+        //console.log(IsTruncated);
+        //console.log(NextContinuationToken);
       }
       console.log(contents);
     } catch (err) {
       console.error(err);
     }
-
-
-
-
-    //const s3 = new S3({
-    //  accessKeyId: this.s3BucketConfig.getAccessKey(),
-    //  secretAccessKey: this.s3BucketConfig.getSecretKey()
-    //});
-    //
-    //const data = await s3.ls() upload(params).promise();
-
   }
 
-  // async uploadToS3(@UploadedFiles() files) {
-  //   const s3 = new S3({
-  //     accessKeyId: this.s3BucketConfig.getAccessKey(),
-  //     secretAccessKey: this.s3BucketConfig.getSecretKey()
-  //   });
-  //
-  //   // This creates an s3 instance which can be used to call inbuilt functions of s3
-  //   const uploadedFiles = [];
-  //   for (const file of files) {
-  //     let id=uuid()
-  //     const params = {
-  //       Bucket: 'xtables',
-  //       Key: id, // Adjust path as needed
-  //       Body: file.buffer,
-  //     };
-  //
-  //     try {
-  //       const data = await s3.upload(params).promise();
-  //       uploadedFiles.push(data.Location);
-  //     }
-  //     catch (error) {
-  //       console.error('Error uploading file to S3:', error);
-  //     }
-  //   }
-  //   return uploadedFiles;
-  // }
+  async put() {
+    const client = new S3Client({
+      region: this.s3BucketConfig.getRegion(),
+      credentials: {
+        accessKeyId: this.s3BucketConfig.getAccessKey(),
+        secretAccessKey: this.s3BucketConfig.getSecretKey(),
+      },
+    });
+
+    const command = new PutObjectCommand({
+      Bucket: this.s3BucketConfig.getBucket(),
+      Key: "docker.txt",
+      Body: "Hello Docker",
+    });
+
+    try {
+      const response = await client.send(command);
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async delete() {
+    const client = new S3Client({
+      region: this.s3BucketConfig.getRegion(),
+      credentials: {
+        accessKeyId: this.s3BucketConfig.getAccessKey(),
+        secretAccessKey: this.s3BucketConfig.getSecretKey(),
+      },
+    });
+
+    const command = new DeleteObjectCommand({
+      Bucket: this.s3BucketConfig.getBucket(),
+      Key: "docker.txt",
+    });
+
+    try {
+      const response = await client.send(command);
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
 }
