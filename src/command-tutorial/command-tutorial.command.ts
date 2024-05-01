@@ -1,5 +1,6 @@
 import { Command, CommandRunner, Option } from 'nest-commander';
 
+//options: {isDefault: true}
 @Command({
   name: 'basic',
   arguments: '[task]',
