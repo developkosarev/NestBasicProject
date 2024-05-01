@@ -42,10 +42,10 @@ $ npm run test:cov
 ```bash
 npm run start:cli
 npm run start:cli help basic
-npm run start:cli help cowsay
 npm run start:cli prisma-hello
 
 npm run start:cli basic demo
+npm run start:cli basic demo -- --number=1 --shell=2 --options=3 --options 3 4
 npm run start:cli sayhello demo -- --name=Sam --age=40
 
 npm run start:cli tunnel-ssh
