@@ -14,7 +14,7 @@ export class S3BucketCommand extends CommandRunner {
   async run(inputs: string[]): Promise<void> {
     console.log('Create file')
     console.log(inputs)
-    
+
     const task = inputs[0]
     switch (task) {
       case 'list':
