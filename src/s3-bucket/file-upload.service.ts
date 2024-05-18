@@ -65,6 +65,7 @@ export class FileUploadService {
 
     try {
       const response = await client.send(command);
+      console.log('Create file2')
       console.log(response);
     } catch (err) {
       console.error(err);
