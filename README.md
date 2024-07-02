@@ -76,3 +76,6 @@ https://www.npmjs.com/package/ssh2
 
 [building-your-first-nestjs-application-a-step-by-step-guide](https://dreamix.eu/insights/building-your-first-nestjs-application-a-step-by-step-guide/)
 [sending-command-line-arguments-to-npm-script](https://stackoverflow.com/questions/11580961/sending-command-line-arguments-to-npm-script)
+
+## Cron
+https://princeigwe.medium.com/automating-tasks-with-cron-jobs-and-nestjs-6fd8db07f568
