@@ -57,9 +57,13 @@ LABEL org.opencontainers.image.title="NestBasicProject"
 LABEL org.opencontainers.image.authors="develop.kosarev@gmail.com"
 LABEL org.opencontainers.image.version="0.0.1"
 
+WORKDIR /opt/app
+
 # Copy the bundled code from the build stage to the production image
 COPY --chown=node:node --from=build /opt/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /opt/app/dist ./dist
 
 # Start the server using the production build
-CMD [ "node", "dist/main.js" ]
+#CMD [ "node", "dist/main.js" ]
+#CMD [ "sh", "-c", "dist/main-cli.js s3-bucket list" ]
+ENTRYPOINT ["node", "dist/main-cli.js"]
