@@ -53,13 +53,13 @@ npm run start:cli tunnel-ssh
 
 ## Docker
 ```bash
-docker build --tag nest-basic-project:v0.0.1 --file Dockerfile .
+docker build --tag nest-basic-project:v0.0.3 --file Dockerfile .
 
-docker tag nest-basic-project:v0.0.1 ghcr.io/developkosarev/nest-basic-project:v0.0.1
+docker tag nest-basic-project:v0.0.3 ghcr.io/developkosarev/nest-basic-project:v0.0.3
 docker images ghcr.io/developkosarev/*
-docker push ghcr.io/developkosarev/nest-basic-project:v0.0.1
-docker run -rm --name nest-basic-project nest-basic-project:v0.0.1
-docker run -d -p 3000:3000 --name nest-basic-project nest-basic-project:v0.0.2
+docker push ghcr.io/developkosarev/nest-basic-project:v0.0.3
+docker run -rm --name nest-basic-project nest-basic-project:v0.0.3
+docker run -d -p 3000:3000 --name nest-basic-project nest-basic-project:v0.0.3
 ```    
 
 ## S3 bucket
