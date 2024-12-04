@@ -53,13 +53,13 @@ npm run start:cli tunnel-ssh
 
 ## Docker
 ```bash
-docker build --tag nest-basic-project:v0.0.1 --file Dockerfile .
+docker build --tag nest-basic-project:v0.0.3 --file Dockerfile .
 
-docker tag nest-basic-project:v0.0.1 ghcr.io/developkosarev/nest-basic-project:v0.0.1
+docker tag nest-basic-project:v0.0.3 ghcr.io/developkosarev/nest-basic-project:v0.0.3
 docker images ghcr.io/developkosarev/*
-docker push ghcr.io/developkosarev/nest-basic-project:v0.0.1
-docker run -rm --name nest-basic-project nest-basic-project:v0.0.1
-docker run -d -p 3000:3000 --name nest-basic-project nest-basic-project:v0.0.2
+docker push ghcr.io/developkosarev/nest-basic-project:v0.0.3
+docker run -rm --name nest-basic-project nest-basic-project:v0.0.3
+docker run -d -p 3000:3000 --name nest-basic-project nest-basic-project:v0.0.3
 ```    
 
 ## S3 bucket
@@ -76,3 +76,6 @@ https://www.npmjs.com/package/ssh2
 
 [building-your-first-nestjs-application-a-step-by-step-guide](https://dreamix.eu/insights/building-your-first-nestjs-application-a-step-by-step-guide/)
 [sending-command-line-arguments-to-npm-script](https://stackoverflow.com/questions/11580961/sending-command-line-arguments-to-npm-script)
+
+## Cron
+https://princeigwe.medium.com/automating-tasks-with-cron-jobs-and-nestjs-6fd8db07f568
